@@ -10,8 +10,8 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  check:
-    name: Rust project
+  build:
+    name: xorctl
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,11 +26,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: check
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --release --verbose
+  
+      - name: Build
+        run: cargo build --release --verbose
 
